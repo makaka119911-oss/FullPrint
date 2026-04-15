@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FullPrint | Текст в 3D-печать",
+  title: "FullPrint | Онлайн 3D-печать",
   description:
-    "MVP-интерфейс FullPrint: описание детали, референс, 3D-модель, проверка и выгрузка для 3D-печати.",
+    "Промышленный лендинг FullPrint: загрузка модели, предварительный расчёт, материалы, процесс и отгрузка. MVP без бэкенда.",
 };
 
 export default function RootLayout({
@@ -26,9 +26,9 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col font-sans">{children}</body>
     </html>
   );
 }

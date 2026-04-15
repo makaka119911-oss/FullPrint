@@ -9,11 +9,11 @@ type StatCardProps = {
 
 export function StatCard({ label, value, footnote }: StatCardProps) {
   return (
-    <div className="rounded-lg border border-zinc-300 bg-white px-5 py-4 shadow-sm transition hover:border-zinc-400 hover:shadow-md">
+    <div className="rounded-2xl border border-zinc-200 bg-white px-5 py-4 shadow-sm transition duration-300 hover:border-teal-500/25 hover:shadow-md">
       <p className="font-mono text-[11px] font-medium uppercase tracking-wider text-zinc-500">
         {label}
       </p>
-      <p className="mt-2 text-2xl font-semibold tabular-nums tracking-tight text-zinc-950 sm:text-3xl">
+      <p className="mt-2 text-2xl font-semibold tabular-nums tracking-tight text-teal-900 sm:text-3xl">
         {value}
       </p>
       {footnote ? (
