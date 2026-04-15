@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "FullPrint | Онлайн 3D-печать",
   description:
-    "Промышленный лендинг FullPrint: загрузка модели, предварительный расчёт, материалы, процесс и отгрузка. MVP без бэкенда.",
+    "Производственный сервис 3D-печати: заявка, проверка геометрии, ревизии и маршрут до отгрузки. B2B-процесс и материалы FDM, SLA, SLS.",
 };
 
 export default function RootLayout({

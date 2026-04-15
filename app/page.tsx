@@ -38,7 +38,7 @@ const nav = [
   },
   {
     href: "#metrics",
-    label: "Метрики",
+    label: "Эффект",
     active:
       "[html:has(#metrics:target)_&]:bg-zinc-200 [html:has(#metrics:target)_&]:text-zinc-950 [html:has(#metrics:target)_&]:shadow-sm",
   },
@@ -88,7 +88,7 @@ export default function Home() {
             href="#prompt"
             className="rounded-md border border-zinc-300 bg-white px-3 py-1.5 text-sm font-medium text-zinc-800 shadow-sm transition hover:border-teal-500/40 hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white lg:hidden"
           >
-            Загрузка
+            Оценка
           </a>
         </div>
         <div className="min-w-0 border-t border-zinc-100 px-4 py-2 sm:px-6 lg:hidden">
@@ -119,11 +119,11 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-zinc-200 bg-white py-8">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 text-sm text-zinc-600 sm:px-6 sm:flex-row sm:items-center sm:justify-between">
-          <span className="font-mono text-xs text-zinc-500">
-            FullPrint MVP · только фронтенд
-          </span>
-          <span>В этой версии нет API-маршрутов и серверной генерации.</span>
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <p className="text-center text-xs leading-relaxed text-zinc-500 sm:text-left">
+            Передача заявок и файлов в производственный контур FullPrint
+            настраивается при подключении вашей организации.
+          </p>
         </div>
       </footer>
     </div>

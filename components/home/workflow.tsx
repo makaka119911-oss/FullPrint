@@ -3,27 +3,27 @@ import { Section } from "./section";
 const stages = [
   {
     code: "01",
-    title: "Бриф и файл",
-    body: "Загрузка модели или текстовое ТЗ: размеры, допуски, материал и технология (FDM, SLA, SLS). Черновик фиксируется до запуска в очередь.",
-    gate: "Gate: старт производства",
+    title: "Задача и комплект входа",
+    body: "Модель или ТЗ: габариты, допуски, материал, технология. Фиксируем исходное требование до расчёта.",
+    gate: "Контрольная точка: допуск к расчёту",
   },
   {
     code: "02",
     title: "Референс формы",
-    body: "Визуальное подтверждение пропорций и ключевых элементов. Моделирование не начинается без принятого референса.",
-    gate: "Gate: референс",
+    body: "Согласование пропорций и ключевых элементов до моделирования — меньше расхождений с ожиданием.",
+    gate: "Контрольная точка: утверждение референса",
   },
   {
     code: "03",
     title: "3D-модель и DFM",
-    body: "Твердотельная модель проходит проверки печатности: стенки, объём, габариты, нависания. Замечания закрываются до выпуска.",
-    gate: "Gate: модель",
+    body: "Проверка печатности и закрытие замечаний до выгрузки и постановки в очередь.",
+    gate: "Контрольная точка: подпись модели",
   },
   {
     code: "04",
-    title: "Выгрузка и печать",
-    body: "STL и 3MF с номером ревизии, постановка в печать, постобработка и отгрузка по согласованному SLA.",
-    gate: "Gate: выгрузка",
+    title: "Выгрузка и производство",
+    body: "STL / 3MF с ревизией, печать, постобработка и отгрузка по согласованному регламенту.",
+    gate: "Контрольная точка: выпуск к отгрузке",
   },
 ] as const;
 
@@ -32,33 +32,45 @@ export function WorkflowSection() {
     <Section
       id="workflow"
       eyebrow="Процесс"
-      title="Как это работает"
-      subtitle="Четыре последовательных шага с жёсткими точками контроля. Следующий этап открывается только после подтверждения текущего — меньше сюрпризов на столе и при сборке."
+      title="Как уходит файл в производство"
+      subtitle="Ответ на «как это работает»: четыре шага с контрольными точками — от комплекта документов до готовой партии."
       variant="muted"
+      emphasis
     >
-      <div className="grid gap-4 sm:grid-cols-2">
-        {stages.map((stage) => (
+      <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 pt-1 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4 lg:gap-4 xl:gap-5">
+        {stages.map((stage, i) => (
           <article
             key={stage.code}
-            className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-teal-500/30 hover:shadow-lg"
+            className="relative min-w-[min(100%,19.5rem)] shrink-0 snap-center rounded-2xl border border-zinc-200 bg-white p-6 shadow-md transition duration-200 hover:-translate-y-0.5 hover:border-teal-500/35 hover:shadow-lg sm:min-w-0"
           >
-            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-700 via-teal-500 to-teal-400 opacity-90 transition group-hover:opacity-100" />
-            <div className="flex items-center gap-3">
-              <span className="inline-flex h-9 min-w-9 items-center justify-center rounded-lg border border-zinc-200 bg-zinc-50 font-mono text-xs font-semibold text-teal-900">
+            <div className="absolute inset-x-0 top-0 h-1.5 rounded-t-2xl bg-gradient-to-r from-zinc-700 via-teal-600 to-teal-400" />
+            <div className="flex items-center justify-between gap-2">
+              <span className="inline-flex h-10 min-w-10 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 font-mono text-sm font-semibold text-teal-900">
                 {stage.code}
               </span>
-              <h3 className="text-base font-semibold text-zinc-950">
-                {stage.title}
-              </h3>
+              {i < stages.length - 1 ? (
+                <span
+                  className="hidden font-mono text-[10px] uppercase tracking-wider text-zinc-400 sm:inline"
+                  aria-hidden
+                >
+                  →
+                </span>
+              ) : null}
             </div>
+            <h3 className="mt-4 text-lg font-semibold leading-snug tracking-tight text-zinc-950">
+              {stage.title}
+            </h3>
             <p className="mt-3 text-sm leading-relaxed text-zinc-600">
               {stage.body}
             </p>
-            <p className="mt-4 border-t border-zinc-100 pt-3">
-              <span className="inline-flex rounded-lg border border-teal-200/80 bg-teal-50/80 px-2.5 py-1 font-mono text-[11px] leading-snug text-teal-900">
+            <div className="mt-5 border-t border-zinc-100 pt-4">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
+                Контрольная точка
+              </p>
+              <p className="mt-1.5 rounded-lg border border-teal-200/90 bg-teal-50/90 px-3 py-2 text-sm font-medium leading-snug text-teal-950">
                 {stage.gate}
-              </span>
-            </p>
+              </p>
+            </div>
           </article>
         ))}
       </div>

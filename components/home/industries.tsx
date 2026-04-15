@@ -2,34 +2,40 @@ import { Section } from "./section";
 
 const cases = [
   {
-    title: "Инженерные прототипы",
-    body: "Корпуса, кронштейны, тестовые сборки — быстрые итерации до серийной оснастки.",
-    tag: "R&D",
+    title: "Корпуса и механика приборов",
+    produces:
+      "Заказные корпуса, крышки, кронштейны и несущие элементы под электронику и механику — с допусками до постановки в печать.",
+    tag: "Корпуса",
   },
   {
-    title: "Производственные приспособления",
-    body: "Направляющие, захваты, калибровочные стенды: допуски согласуются до постановки в печать.",
-    tag: "Tooling",
+    title: "Оснастка и направляющие",
+    produces:
+      "Захваты, кондукторы, направляющие и вспомогательная оснастка для серийной сборки и контроля геометрии на линии.",
+    tag: "Оснастка",
   },
   {
-    title: "Архитектурные и выставочные модели",
-    body: "Масштабные макеты и фасадные фрагменты с аккуратной геометрией и финишем.",
-    tag: "Maquette",
+    title: "Прототипы и посадочные проверки",
+    produces:
+      "Детали для примерки узлов, проверки зазоров и кинематики до запуска дорогой оснастки или литника.",
+    tag: "Проверка",
   },
   {
-    title: "Обучение и наглядные макеты",
-    body: "Учебные стенды и демонстрационные узлы без заявлений о медицинском назначении.",
-    tag: "Edu",
+    title: "Мелкосерийные функциональные детали",
+    produces:
+      "Короткие партии рабочих элементов — от одиночных образцов до повторяемых малых тиражей с одним профилем партии.",
+    tag: "Серия",
   },
   {
-    title: "Малый бизнес и кастом",
-    body: "Короткие партии кастом-деталей и брендированные аксессуары с предсказуемым циклом.",
-    tag: "SMB",
+    title: "Визуальные и выставочные макеты",
+    produces:
+      "Масштабные модели, фрагменты изделий и наглядные узлы для показа геометрии (без заявлений о медицинском назначении).",
+    tag: "Макет",
   },
   {
-    title: "Логистика упаковки",
-    body: "Ложементы, прокладки и внутренняя тароформующая геометрия под партию.",
-    tag: "Pack",
+    title: "Упаковка и комплектация",
+    produces:
+      "Ложементы, прокладки и внутренняя геометрия тары под конкретную партию — посадка и защита при транспортировке.",
+    tag: "Тара",
   },
 ] as const;
 
@@ -37,26 +43,32 @@ export function IndustriesSection() {
   return (
     <Section
       id="industries"
-      eyebrow="Отрасли и сценарии"
-      title="Где FullPrint даёт максимум пользы"
-      subtitle="Типовые кейсы онлайн-3D-печати: от первой детали до повторяемых поставок. Конкретный маршрут зависит от геометрии, материала и постобработки."
+      eyebrow="Заказные сценарии"
+      title="Типовые задачи, которые закрываем изделиями с печати"
+      subtitle="Практические B2B-входы: от корпусов и оснастки до макетов и тары. Конкретный маршрут и стек — после приёмки модели."
+      variant="muted"
     >
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
         {cases.map((c) => (
           <article
             key={c.title}
-            className="group flex h-full flex-col rounded-2xl border border-zinc-200 bg-gradient-to-b from-white to-zinc-50/80 p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-teal-500/30 hover:shadow-lg"
+            className="group flex min-h-[200px] h-full flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-teal-500/35 hover:shadow-md"
           >
-            <div className="flex items-center justify-between gap-2">
-              <h3 className="text-base font-semibold text-zinc-950">{c.title}</h3>
-              <span className="rounded-md border border-zinc-200 bg-white px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-wide text-teal-800">
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="text-base font-semibold leading-snug text-zinc-950">
+                {c.title}
+              </h3>
+              <span className="shrink-0 rounded-md border border-teal-200/80 bg-teal-50/90 px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-wide text-teal-900">
                 {c.tag}
               </span>
             </div>
-            <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-600">
-              {c.body}
+            <p className="mt-1 text-[11px] font-semibold uppercase tracking-wide text-zinc-500">
+              FullPrint поставляет
             </p>
-            <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent transition group-hover:via-teal-200/80" />
+            <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600">
+              {c.produces}
+            </p>
+            <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent transition group-hover:via-teal-300/60" />
           </article>
         ))}
       </div>
