@@ -1,7 +1,13 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextRequest, NextResponse } from "next/server";
 
-const PUBLIC_PATHS = ["/", "/login", "/signup", "/marketplace"] as const;
+const PUBLIC_PATHS = [
+  "/",
+  "/login",
+  "/signup",
+  "/marketplace",
+  "/auth/callback",
+] as const;
 const PUBLIC_PREFIXES = ["/api"] as const;
 
 const PROTECTED_PREFIXES = [

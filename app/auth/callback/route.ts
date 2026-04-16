@@ -1,59 +1,153 @@
 import { createServerClient } from "@supabase/ssr";
-import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
+
+function sanitizeNext(next: string | null, fallback = "/dashboard"): string {
+  const path = (next?.trim() || fallback).split("?")[0] ?? fallback;
+  if (!path.startsWith("/") || path.startsWith("//") || path.includes("://")) {
+    return fallback;
+  }
+  return path;
+}
+
+function readPendingUsername(raw: string | undefined): string | null {
+  if (!raw) return null;
+  try {
+    return decodeURIComponent(raw);
+  } catch {
+    return raw;
+  }
+}
 
 export async function GET(request: NextRequest) {
   const requestUrl = new URL(request.url);
+  const origin = requestUrl.origin;
   const code = requestUrl.searchParams.get("code");
-  const next = requestUrl.searchParams.get("next") || "/dashboard";
+  const oauthError = requestUrl.searchParams.get("error");
+  const oauthDescription = requestUrl.searchParams.get("error_description");
+  const nextPath = sanitizeNext(requestUrl.searchParams.get("next"));
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
-
-  if (!url || !anonKey) {
-    return NextResponse.redirect(new URL(next, request.url));
-  }
-
-  const cookieStore = await cookies();
-
-  const supabase = createServerClient(url, anonKey, {
-    cookies: {
-      getAll() {
-        return cookieStore.getAll();
-      },
-      setAll(cookiesToSet) {
-        cookiesToSet.forEach(({ name, value, options }) => {
-          cookieStore.set(name, value, options);
-        });
-      },
-    },
+  console.log("[auth/callback] request", {
+    origin,
+    url: request.url,
+    hasCode: Boolean(code),
+    codeLength: code?.length ?? 0,
+    next: nextPath,
+    oauthError,
   });
 
-  if (code) {
-    await supabase.auth.exchangeCodeForSession(code);
-
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    const pendingUsername = cookieStore.get("fp_username")?.value;
-    if (user) {
-      await supabase.from("profiles").upsert(
-        {
-          id: user.id,
-          email: user.email,
-          username: pendingUsername || null,
-          created_at: new Date().toISOString(),
-        },
-        { onConflict: "id" },
-      );
-    }
-
-    if (pendingUsername) {
-      cookieStore.delete("fp_username");
-    }
+  if (oauthError) {
+    console.error("[auth/callback] Supabase redirect error:", oauthError, oauthDescription);
+    const login = new URL("/login", origin);
+    login.searchParams.set(
+      "error",
+      oauthDescription?.slice(0, 300) || oauthError,
+    );
+    return NextResponse.redirect(login);
   }
 
-  return NextResponse.redirect(new URL(next, request.url));
-}
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.error("[auth/callback] Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY");
+    const login = new URL("/login", origin);
+    login.searchParams.set("error", "server_config");
+    return NextResponse.redirect(login);
+  }
+
+  const redirectTarget = new URL(nextPath, origin);
+  const response = NextResponse.redirect(redirectTarget);
+
+  try {
+    const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll();
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value, options }) => {
+            response.cookies.set(name, value, options);
+          });
+        },
+      },
+    });
+
+    if (code) {
+      const { data: exchangeData, error: exchangeError } =
+        await supabase.auth.exchangeCodeForSession(code);
+
+      if (exchangeError) {
+        console.error("[auth/callback] exchangeCodeForSession:", {
+          message: exchangeError.message,
+          status: exchangeError.status,
+          name: exchangeError.name,
+        });
+        const login = new URL("/login", origin);
+        login.searchParams.set("error", "magic_link_invalid");
+        login.searchParams.set("details", exchangeError.message.slice(0, 200));
+        return NextResponse.redirect(login);
+      }
+
+      console.log("[auth/callback] exchangeCodeForSession OK", {
+        hasSession: Boolean(exchangeData?.session),
+        userId: exchangeData?.session?.user?.id ?? null,
+      });
+
+      const {
+        data: { user },
+        error: userError,
+      } = await supabase.auth.getUser();
+
+      if (userError) {
+        console.error("[auth/callback] getUser after exchange:", userError.message);
+      }
+
+      const pendingUsername = readPendingUsername(request.cookies.get("fp_username")?.value);
+
+      if (user) {
+        const { error: upsertError } = await supabase.from("profiles").upsert(
+          {
+            id: user.id,
+            email: user.email,
+            username: pendingUsername || null,
+            created_at: new Date().toISOString(),
+          },
+          { onConflict: "id" },
+        );
+
+        if (upsertError) {
+          console.error("[auth/callback] profiles upsert:", upsertError.message);
+        }
+      }
+
+      if (request.cookies.get("fp_username")) {
+        response.cookies.set("fp_username", "", {
+          path: "/",
+          maxAge: 0,
+          sameSite: "lax",
+        });
+      }
+
+      return response;
+    }
+
+    const {
+      data: { user: existingUser },
+    } = await supabase.auth.getUser();
+
+    if (existingUser) {
+      console.log("[auth/callback] no code, existing session — redirect", nextPath);
+      return response;
+    }
+
+    console.warn("[auth/callback] no ?code= and no session — sending to login");
+    const login = new URL("/login", origin);
+    login.searchParams.set("error", "missing_code");
+    return NextResponse.redirect(login);
+  } catch (e) {
+    console.error("[auth/callback] exception:", e);
+    const login = new URL("/login", origin);
+    login.searchParams.set("error", "callback_exception");
+    return NextResponse.redirect(login);
+  }
+}

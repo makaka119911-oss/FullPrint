@@ -17,6 +17,35 @@ export default function LoginPage() {
   const [sent, setSent] = React.useState<string | null>(null);
   const [error, setError] = React.useState<string | null>(null);
 
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const err = params.get("error");
+    const details = params.get("details");
+    if (!err) return;
+
+    let message = err;
+    if (err === "server_config") {
+      message = SUPABASE_CLIENT_CONFIG_ERROR;
+    } else if (err === "magic_link_invalid") {
+      try {
+        message = details
+          ? decodeURIComponent(details.replace(/\+/g, " "))
+          : "Ссылка входа недействительна или устарела. Запросите новую.";
+      } catch {
+        message =
+          details?.replace(/\+/g, " ") ||
+          "Ссылка входа недействительна или устарела. Запросите новую.";
+      }
+    } else if (err === "missing_code") {
+      message = "Откройте ссылку из письма в браузере или запросите magic link снова.";
+    } else if (err === "callback_exception") {
+      message = "Ошибка при входе. Попробуйте ещё раз или запросите новую ссылку.";
+    }
+
+    setError(message);
+    window.history.replaceState({}, "", "/login");
+  }, []);
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setPending(true);
