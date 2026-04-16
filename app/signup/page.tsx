@@ -1,0 +1,118 @@
+"use client";
+
+import * as React from "react";
+import Link from "next/link";
+
+import { createClient } from "@/lib/supabase/client";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+function setPendingUsernameCookie(username: string) {
+  const safe = encodeURIComponent(username.trim());
+  document.cookie = `fp_username=${safe}; Path=/; Max-Age=600; SameSite=Lax`;
+}
+
+export default function SignupPage() {
+  const [email, setEmail] = React.useState("");
+  const [username, setUsername] = React.useState("");
+  const [pending, setPending] = React.useState(false);
+  const [sent, setSent] = React.useState<string | null>(null);
+  const [error, setError] = React.useState<string | null>(null);
+
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setPending(true);
+    setError(null);
+    setSent(null);
+
+    try {
+      setPendingUsernameCookie(username);
+
+      const supabase = createClient();
+      const emailRedirectTo = `${window.location.origin}/auth/callback?next=/dashboard`;
+      const { error: signUpError } = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo,
+        },
+      });
+      if (signUpError) throw signUpError;
+
+      setSent(email);
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Не удалось отправить ссылку",
+      );
+    } finally {
+      setPending(false);
+    }
+  }
+
+  return (
+    <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl items-center px-4 py-16 sm:px-6">
+      <Card className="mx-auto w-full max-w-md">
+        <CardHeader>
+          <CardTitle className="text-xl">Регистрация</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={onSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="you@company.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="username">Username</Label>
+              <Input
+                id="username"
+                type="text"
+                placeholder="maxel"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                autoComplete="username"
+                required
+              />
+            </div>
+
+            <Button
+              type="submit"
+              className="w-full rounded-full"
+              disabled={pending}
+            >
+              {pending ? "Отправляем..." : "Создать аккаунт (magic link)"}
+            </Button>
+
+            {sent ? (
+              <p className="text-sm text-zinc-600 dark:text-zinc-300">
+                Ссылка для регистрации отправлена на{" "}
+                <span className="font-medium">{sent}</span>.
+              </p>
+            ) : null}
+
+            {error ? (
+              <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+            ) : null}
+
+            <p className="text-sm text-zinc-600 dark:text-zinc-300">
+              Уже есть аккаунт?{" "}
+              <Link className="text-foreground underline-offset-4 hover:underline" href="/login">
+                Войти
+              </Link>
+            </p>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+

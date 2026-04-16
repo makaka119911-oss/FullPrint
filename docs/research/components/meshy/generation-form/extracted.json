@@ -1,0 +1,493 @@
+{
+  "textareas": [],
+  "selects": [],
+  "buttons": [
+    {
+      "index": 3,
+      "tag": "a",
+      "text": "Image to 3D Transform any image into a 3D model in seconds.",
+      "attrs": "data-active=\"false\" class=\"group font-bold select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm hover:bg-bg-base-hover inline-flex size-full max-w-60 flex-1 flex-col items-center gap-0 rounded-3xl p-0 transition-all duration-200 ease-out hover:scale-105 bg-gradient-to-b from-[#3A1806] to-[#845D48]\" aria-label=\"Image to 3DTransform any image into a 3D model in seconds.\" href=\"/features/image-to-3d\""
+    },
+    {
+      "index": 4,
+      "tag": "a",
+      "text": "Text to 3D Describe it, generate it — 3D models from text prompts.",
+      "attrs": "data-active=\"false\" class=\"group font-bold select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm hover:bg-bg-base-hover inline-flex size-full max-w-60 flex-1 flex-col items-center gap-0 rounded-3xl p-0 transition-all duration-200 ease-out hover:scale-105 bg-gradient-to-b from-[#222A08] to-[#768644]\" aria-label=\"Text to 3DDescribe it, generate it — 3D models from text prompts.\" href=\"/features/text-to-3d\""
+    },
+    {
+      "index": 5,
+      "tag": "a",
+      "text": "AI Texturing Add realistic PBR textures to any 3D model with AI.",
+      "attrs": "data-active=\"false\" class=\"group font-bold select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm hover:bg-bg-base-hover inline-flex size-full max-w-60 flex-1 flex-col items-center gap-0 rounded-3xl p-0 transition-all duration-200 ease-out hover:scale-105 bg-gradient-to-b from-[#142E21] to-[#428C68]\" aria-label=\"AI TexturingAdd realistic PBR textures to any 3D model with AI.\" href=\"/features/ai-texture-generator\""
+    },
+    {
+      "index": 6,
+      "tag": "a",
+      "text": "AI Image Generator Generate multi-view images optimized for 3D creation.",
+      "attrs": "data-active=\"false\" class=\"group font-bold select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm hover:bg-bg-base-hover inline-flex size-full max-w-60 flex-1 flex-col items-center gap-0 rounded-3xl p-0 transition-all duration-200 ease-out hover:scale-105 bg-gradient-to-b from-[#32164F] to-[#713391]\" aria-label=\"AI Image GeneratorGenerate multi-view images optimized for 3D creation.\" href=\"/features/ai-image-generator\""
+    },
+    {
+      "index": 7,
+      "tag": "a",
+      "text": "Animation Auto-rig and animate any 3D character in seconds.",
+      "attrs": "data-active=\"false\" class=\"group font-bold select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm hover:bg-bg-base-hover inline-flex size-full max-w-60 flex-1 flex-col items-center gap-0 rounded-3xl p-0 transition-all duration-200 ease-out hover:scale-105 bg-gradient-to-b from-[#0C2531] to-[#4A7E97]\" aria-label=\"AnimationAuto-rig and animate any 3D character in seconds.\" href=\"/features/ai-animation-generator\""
+    },
+    {
+      "index": 8,
+      "tag": "a",
+      "text": "API Integrate Meshy&#x27;s 3D AI into your app or pipeline.",
+      "attrs": "data-active=\"false\" class=\"group font-bold select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm hover:bg-bg-base-hover inline-flex size-full max-w-60 flex-1 flex-col items-center gap-0 rounded-3xl p-0 transition-all duration-200 ease-out hover:scale-105 bg-gradient-to-b from-[#1A2658] to-[#506BAF]\" aria-label=\"APIIntegrate Meshy&#x27;s 3D AI into your app or pipeline.\" href=\"/api\""
+    },
+    {
+      "index": 9,
+      "tag": "a",
+      "text": "API",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover px-3 py-1.5 text-sm\" aria-label=\"API\" href=\"/api\""
+    },
+    {
+      "index": 10,
+      "tag": "a",
+      "text": "Pricing",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover px-3 py-1.5 text-sm\" aria-label=\"Pricing\" href=\"/pricing\""
+    },
+    {
+      "index": 11,
+      "tag": "a",
+      "text": "Free 3D Models Generate and download 3D models you like",
+      "attrs": "data-active=\"false\" class=\"group flex items-center font-bold transition duration-200 ease-out select-none text-label-title data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm flex-row gap-5 rounded-xl w-full px-5 hover:text-label-title hover:bg-bg-sub max-w-[240px] py-4\" aria-label=\"\" href=\"/use-cases/free-3d-models\""
+    },
+    {
+      "index": 12,
+      "tag": "a",
+      "text": "3D Printing Bring your 3D printing ideas to life in seconds",
+      "attrs": "data-active=\"false\" class=\"group flex items-center font-bold transition duration-200 ease-out select-none text-label-title data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm flex-row gap-5 rounded-xl w-full px-5 hover:text-label-title hover:bg-bg-sub max-w-[240px] py-4\" aria-label=\"\" href=\"/use-cases/3d-printer-files\""
+    },
+    {
+      "index": 13,
+      "tag": "a",
+      "text": "Game Development Supercharge your game by saving time and costs on 3D modeling",
+      "attrs": "data-active=\"false\" class=\"group flex items-center font-bold transition duration-200 ease-out select-none text-label-title data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm flex-row gap-5 rounded-xl w-full px-5 hover:text-label-title hover:bg-bg-sub max-w-[240px] py-4\" aria-label=\"\" href=\"/use-cases/free-game-assets\""
+    },
+    {
+      "index": 14,
+      "tag": "a",
+      "text": "3D Animation Rig and animate humanoid or quadruped models in minutes",
+      "attrs": "data-active=\"false\" class=\"group flex items-center font-bold transition duration-200 ease-out select-none text-label-title data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm flex-row gap-5 rounded-xl w-full px-5 hover:text-label-title hover:bg-bg-sub max-w-[240px] py-4\" aria-label=\"\" href=\"/use-cases/3d-animation\""
+    },
+    {
+      "index": 15,
+      "tag": "a",
+      "text": "Education Powering the next generation of Creatives",
+      "attrs": "data-active=\"false\" class=\"group flex items-center font-bold transition duration-200 ease-out select-none text-label-title data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm flex-row gap-5 rounded-xl w-full px-5 hover:text-label-title hover:bg-bg-sub max-w-[240px] py-4\" aria-label=\"\" href=\"/use-cases/education\""
+    },
+    {
+      "index": 16,
+      "tag": "a",
+      "text": "Product Design Iterate your ideas faster with sketch to 3D",
+      "attrs": "data-active=\"false\" class=\"group flex items-center font-bold transition duration-200 ease-out select-none text-label-title data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm flex-row gap-5 rounded-xl w-full px-5 hover:text-label-title hover:bg-bg-sub max-w-[240px] py-4\" aria-label=\"\" href=\"/use-cases/product-design\""
+    },
+    {
+      "index": 17,
+      "tag": "a",
+      "text": "Film Production Streamline previz and VFX pipelines with faster 3D model creation",
+      "attrs": "data-active=\"false\" class=\"group flex items-center font-bold transition duration-200 ease-out select-none text-label-title data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm flex-row gap-5 rounded-xl w-full px-5 hover:text-label-title hover:bg-bg-sub max-w-[240px] py-4\" aria-label=\"\" href=\"/use-cases/film-production\""
+    },
+    {
+      "index": 18,
+      "tag": "a",
+      "text": "VR/AR Bring your imagination to life in the world of XR",
+      "attrs": "data-active=\"false\" class=\"group flex items-center font-bold transition duration-200 ease-out select-none text-label-title data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm flex-row gap-5 rounded-xl w-full px-5 hover:text-label-title hover:bg-bg-sub max-w-[240px] py-4\" aria-label=\"\" href=\"/use-cases/vr-ar\""
+    },
+    {
+      "index": 19,
+      "tag": "a",
+      "text": "Toy Design Turn sketches into 3D models for quick prototyping",
+      "attrs": "data-active=\"false\" class=\"group flex items-center font-bold transition duration-200 ease-out select-none text-label-title data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm flex-row gap-5 rounded-xl w-full px-5 hover:text-label-title hover:bg-bg-sub max-w-[240px] py-4\" aria-label=\"\" href=\"/use-cases/toy-design\""
+    },
+    {
+      "index": 20,
+      "tag": "a",
+      "text": "E-commerce Generate 3D visuals for you products",
+      "attrs": "data-active=\"false\" class=\"group flex items-center font-bold transition duration-200 ease-out select-none text-label-title data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm flex-row gap-5 rounded-xl w-full px-5 hover:text-label-title hover:bg-bg-sub max-w-[240px] py-4\" aria-label=\"\" href=\"/use-cases/e-commerce\""
+    },
+    {
+      "index": 21,
+      "tag": "a",
+      "text": "Interior Design Accelerate your workflow from concept to presentation",
+      "attrs": "data-active=\"false\" class=\"group flex items-center font-bold transition duration-200 ease-out select-none text-label-title data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm flex-row gap-5 rounded-xl w-full px-5 hover:text-label-title hover:bg-bg-sub max-w-[240px] py-4\" aria-label=\"\" href=\"/use-cases/interior-design\""
+    },
+    {
+      "index": 22,
+      "tag": "a",
+      "text": "VFX Accelerate prototyping and previz workflow",
+      "attrs": "data-active=\"false\" class=\"group flex items-center font-bold transition duration-200 ease-out select-none text-label-title data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm flex-row gap-5 rounded-xl w-full px-5 hover:text-label-title hover:bg-bg-sub max-w-[240px] py-4\" aria-label=\"\" href=\"/use-cases/vfx\""
+    },
+    {
+      "index": 23,
+      "tag": "a",
+      "text": "Showcase Browse the community showcase to get inspired",
+      "attrs": "data-active=\"false\" class=\"group font-bold select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm hover:bg-bg-base-hover inline-flex size-full max-w-60 flex-1 flex-col items-center gap-0 rounded-3xl p-0 transition-all duration-200 ease-out hover:scale-105 bg-gradient-to-b from-[#0D372E] to-[#00D0A6]\" aria-label=\"ShowcaseBrowse the community showcase to get inspired\" href=\"/discover\""
+    },
+    {
+      "index": 24,
+      "tag": "a",
+      "text": "Discord Join the creator community to learn, share, and get the latest updates",
+      "attrs": "data-active=\"false\" class=\"group font-bold select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm hover:bg-bg-base-hover inline-flex size-full max-w-60 flex-1 flex-col items-center gap-0 rounded-3xl p-0 transition-all duration-200 ease-out hover:scale-105 bg-gradient-to-b from-[#212658] to-[#5764F0]\" aria-label=\"DiscordJoin the creator community to learn, share, and get the latest updates\" target=\"_blank\" href=\"https://discord.com/invite/KgD5yVM9Y4\""
+    },
+    {
+      "index": 25,
+      "tag": "a",
+      "text": "User Stories See how creators are using Meshy to streamline their workflows",
+      "attrs": "data-active=\"false\" class=\"group font-bold select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm hover:bg-bg-base-hover inline-flex size-full max-w-60 flex-1 flex-col items-center gap-0 rounded-3xl p-0 transition-all duration-200 ease-out hover:scale-105 bg-gradient-to-b from-[#232D13] to-[#7A9D30]\" aria-label=\"User StoriesSee how creators are using Meshy to streamline their workflows\" href=\"/blog/category/user-stories\""
+    },
+    {
+      "index": 26,
+      "tag": "a",
+      "text": "Blog",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Blog\" href=\"/blog\""
+    },
+    {
+      "index": 27,
+      "tag": "a",
+      "text": "Tutorials",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Tutorials\" href=\"/tutorials\""
+    },
+    {
+      "index": 28,
+      "tag": "a",
+      "text": "Customer Stories",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Customer Stories\" href=\"/customers\""
+    },
+    {
+      "index": 29,
+      "tag": "a",
+      "text": "Documentation",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Documentation\" target=\"_blank\" href=\"https://docs.meshy.ai/en\""
+    },
+    {
+      "index": 30,
+      "tag": "a",
+      "text": "Help Center",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Help Center\" target=\"_blank\" href=\"https://help.meshy.ai/en/\""
+    },
+    {
+      "index": 31,
+      "tag": "a",
+      "text": "Affiliate Program",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Affiliate Program\" href=\"/affiliates\""
+    },
+    {
+      "index": 32,
+      "tag": "a",
+      "text": "Creator Program",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Creator Program\" href=\"/creators\""
+    },
+    {
+      "index": 33,
+      "tag": "a",
+      "text": "Fellowship Program",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Fellowship Program\" href=\"/fellowship\""
+    },
+    {
+      "index": 34,
+      "tag": "a",
+      "text": "Education Program",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Education Program\" href=\"/education\""
+    },
+    {
+      "index": 35,
+      "tag": "a",
+      "text": "Blender Plugin",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Blender Plugin\" target=\"_blank\" href=\"https://cdn.meshy.ai/meshy-for-blender/meshy-blender-plugin-v0.6.0.zip\""
+    },
+    {
+      "index": 36,
+      "tag": "a",
+      "text": "Unity Plugin",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Unity Plugin\" target=\"_blank\" href=\"https://cdn.meshy.ai/meshy-for-unity/meshy-for-unity-0.2.2.unitypackage\""
+    },
+    {
+      "index": 37,
+      "tag": "a",
+      "text": "Unreal Plugin",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Unreal Plugin\" target=\"_blank\" href=\"https://cdn.meshy.ai/meshy-for-unreal/meshy-unreal-plugin-v0.1.3.zip\""
+    },
+    {
+      "index": 38,
+      "tag": "a",
+      "text": "Godot Plugin",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Godot Plugin\" target=\"_blank\" href=\"https://cdn.meshy.ai/meshy-for-godot/meshy-godot-plugin-v0.1.4.zip\""
+    },
+    {
+      "index": 39,
+      "tag": "a",
+      "text": "Maya Plugin",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Maya Plugin\" target=\"_blank\" href=\"https://cdn.meshy.ai/meshy-for-maya/meshy-maya-plugin-v0.1.0.zip\""
+    },
+    {
+      "index": 40,
+      "tag": "a",
+      "text": "3DS Max Plugin",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"3DS Max Plugin\" target=\"_blank\" href=\"https://cdn.meshy.ai/meshy-for-3dsmax/meshy-3dsmax-plugin-v0.1.0.zip\""
+    },
+    {
+      "index": 41,
+      "tag": "a",
+      "text": "Roblox Plugin",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Roblox Plugin\" target=\"_blank\" href=\"https://cdn.meshy.ai/meshy-for-roblox/MeshyRobloxBridge-v0.1.0.zip\""
+    },
+    {
+      "index": 42,
+      "tag": "a",
+      "text": "Media Kit",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Media Kit\" href=\"/media-kit\""
+    },
+    {
+      "index": 43,
+      "tag": "a",
+      "text": "3D File Converter",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"3D File Converter\" href=\"/3d-tools/file-converter\""
+    },
+    {
+      "index": 44,
+      "tag": "a",
+      "text": "Online 3D Viewer",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Online 3D Viewer\" href=\"/3d-tools/online-viewer\""
+    },
+    {
+      "index": 45,
+      "tag": "a",
+      "text": "About",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"About\" href=\"/about#about\""
+    },
+    {
+      "index": 46,
+      "tag": "a",
+      "text": "Careers",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Careers\" href=\"/careers\""
+    },
+    {
+      "index": 47,
+      "tag": "a",
+      "text": "Terms Of Use",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Terms Of Use\" href=\"/terms-of-use\""
+    },
+    {
+      "index": 48,
+      "tag": "a",
+      "text": "Privacy Policy",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Privacy Policy\" href=\"/privacy-policy\""
+    },
+    {
+      "index": 49,
+      "tag": "a",
+      "text": "Acceptable Use Policy",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Acceptable Use Policy\" href=\"/acceptable-use-policy\""
+    },
+    {
+      "index": 50,
+      "tag": "a",
+      "text": "Cookie Policy",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Cookie Policy\" href=\"/cookie-policy\""
+    },
+    {
+      "index": 51,
+      "tag": "a",
+      "text": "Trust Center",
+      "attrs": "data-active=\"false\" class=\"group flex items-center gap-3 rounded-[10px] font-bold transition duration-200 ease-out select-none text-label-title hover:text-accent-base data-[active=true]:text-accent-base data-[active=true]:hover:text-accent-base-hover text-sm px-0 py-2\" aria-label=\"Trust Center\" target=\"_blank\" href=\"https://app.drata.com/trust/07cad912-84f9-4f9e-ad58-6975d62ad32f\""
+    },
+    {
+      "index": 52,
+      "tag": "a",
+      "text": "Contact Sales",
+      "attrs": "type=\"button\" class=\"group/button items-center justify-center whitespace-nowrap transition duration-100 ease-out select-none px-3 h-8 rounded-[10px] gap-1.5 active:opacity-70 border border-transparent bg-transparent hover:bg-bg-translucent hover:text-label-title cursor-pointer text-label-title hidden text-xs font-bold sm:flex\" data-type=\"tertiary\" href=\"/contact\""
+    },
+    {
+      "index": 53,
+      "tag": "button",
+      "text": "Log In",
+      "attrs": "type=\"button\" class=\"group/button items-center justify-center whitespace-nowrap transition duration-100 ease-out select-none px-3 h-8 rounded-[10px] gap-1.5 active:opacity-70 border border-transparent bg-transparent hover:bg-bg-translucent hover:text-label-title cursor-pointer text-label-title hidden text-xs font-bold sm:flex\" data-testid=\"header-login-btn\" data-type=\"tertiary\""
+    },
+    {
+      "index": 54,
+      "tag": "button",
+      "text": "Sign Up Free",
+      "attrs": "type=\"button\" class=\"group/button inline-flex items-center justify-center whitespace-nowrap transition duration-100 ease-out select-none h-8 gap-1.5 text-sm active:opacity-70 text-accent-label border border-transparent bg-accent-base hover:bg-accent-base-hover cursor-pointer rounded-full px-4 font-bold\" data-testid=\"header-signup-btn\" data-type=\"primary\""
+    },
+    {
+      "index": 55,
+      "tag": "button",
+      "text": "Start Creating",
+      "attrs": "class=\"text-accent-label hover:shadow-accent-base/30 inline-flex cursor-pointer items-center justify-center rounded-full bg-gradient-to-b from-[#C5F955] to-[#E3FFA7] px-7 py-2 text-base leading-6 font-bold transition duration-300 ease-out select-none hover:-translate-y-1 hover:from-[#E3FFA7] hover:to-[#C5F955] hover:shadow-[0_0_30px_rgba(197,249,85,0.3)] md:py-3 md:text-lg mt-5 sm:mt-8 md:mt-12 lg:mt-[60px]\""
+    },
+    {
+      "index": 56,
+      "tag": "a",
+      "text": "Explore More",
+      "attrs": "type=\"button\" class=\"group/button items-center whitespace-nowrap select-none text-base active:opacity-70 text-accent-label border border-transparent hover:bg-accent-base-hover cursor-pointer hover:shadow-accent-base/30 mt-[60px] flex bg-gradient-to-b from-[#91BDBF] to-[#C1EBED] h-[38px] w-fit flex-row-reverse justify-center gap-[10px] rounded-full py-2 pr-5 pl-7 font-bold transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(197,249,85,0.3)] md:py-3 md:text-lg\" icon=\"[object Object]\" data-type=\"primary\" href=\"/use-cases/film-production\""
+    },
+    {
+      "index": 57,
+      "tag": "a",
+      "text": "Explore More",
+      "attrs": "type=\"button\" class=\"group/button items-center whitespace-nowrap select-none text-base active:opacity-70 text-accent-label border border-transparent hover:bg-accent-base-hover cursor-pointer hover:shadow-accent-base/30 mt-[60px] flex bg-gradient-to-b from-[#6DD8FF] to-[#97F6FF] h-[38px] w-fit flex-row-reverse justify-center gap-[10px] rounded-full py-2 pr-5 pl-7 font-bold transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(197,249,85,0.3)] md:py-3 md:text-lg\" icon=\"[object Object]\" data-type=\"primary\" href=\"/use-cases/product-design\""
+    },
+    {
+      "index": 58,
+      "tag": "a",
+      "text": "Explore More",
+      "attrs": "type=\"button\" class=\"group/button items-center whitespace-nowrap select-none text-base active:opacity-70 text-accent-label border border-transparent hover:bg-accent-base-hover cursor-pointer hover:shadow-accent-base/30 mt-[60px] flex bg-gradient-to-b from-[#D2B894] to-[#E8DFB5] h-[38px] w-fit flex-row-reverse justify-center gap-[10px] rounded-full py-2 pr-5 pl-7 font-bold transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(197,249,85,0.3)] md:py-3 md:text-lg\" icon=\"[object Object]\" data-type=\"primary\" href=\"/use-cases/education\""
+    },
+    {
+      "index": 59,
+      "tag": "a",
+      "text": "Explore More",
+      "attrs": "type=\"button\" class=\"group/button items-center whitespace-nowrap select-none text-base active:opacity-70 text-accent-label border border-transparent hover:bg-accent-base-hover cursor-pointer hover:shadow-accent-base/30 mt-[60px] flex bg-gradient-to-b from-[#69FFE5] to-[#9EFFEE] h-[38px] w-fit flex-row-reverse justify-center gap-[10px] rounded-full py-2 pr-5 pl-7 font-bold transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(197,249,85,0.3)] md:py-3 md:text-lg\" icon=\"[object Object]\" data-type=\"primary\" href=\"/use-cases/free-game-assets\""
+    },
+    {
+      "index": 61,
+      "tag": "a",
+      "text": "Explore More",
+      "attrs": "type=\"button\" class=\"group/button items-center whitespace-nowrap select-none text-base active:opacity-70 text-accent-label border border-transparent hover:bg-accent-base-hover cursor-pointer hover:shadow-accent-base/30 mt-[60px] flex bg-gradient-to-b from-[#FFF75D] to-[#FDFF84] h-[38px] w-fit flex-row-reverse justify-center gap-[10px] rounded-full py-2 pr-5 pl-7 font-bold transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(197,249,85,0.3)] md:py-3 md:text-lg\" icon=\"[object Object]\" data-type=\"primary\" href=\"/use-cases/3d-printer-files\""
+    },
+    {
+      "index": 63,
+      "tag": "a",
+      "text": "Explore More",
+      "attrs": "type=\"button\" class=\"group/button items-center whitespace-nowrap select-none text-base active:opacity-70 text-accent-label border border-transparent hover:bg-accent-base-hover cursor-pointer hover:shadow-accent-base/30 mt-[60px] flex bg-gradient-to-b from-[#F6A0D3] to-[#F5C5D5] h-[38px] w-fit flex-row-reverse justify-center gap-[10px] rounded-full py-2 pr-5 pl-7 font-bold transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(197,249,85,0.3)] md:py-3 md:text-lg\" icon=\"[object Object]\" data-type=\"primary\" href=\"/use-cases/vr-ar\""
+    },
+    {
+      "index": 64,
+      "tag": "a",
+      "text": "Explore More",
+      "attrs": "type=\"button\" class=\"group/button items-center whitespace-nowrap select-none text-base active:opacity-70 text-accent-label border border-transparent hover:bg-accent-base-hover cursor-pointer hover:shadow-accent-base/30 mt-[60px] flex bg-gradient-to-b from-[#DF9578] to-[#FFCEA6] h-[38px] w-fit flex-row-reverse justify-center gap-[10px] rounded-full py-2 pr-5 pl-7 font-bold transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(197,249,85,0.3)] md:py-3 md:text-lg\" icon=\"[object Object]\" data-type=\"primary\" href=\"/use-cases/interior-design\""
+    },
+    {
+      "index": 65,
+      "tag": "a",
+      "text": "G2 Rating: 4.8",
+      "attrs": "target=\"_blank\" rel=\"noopener noreferrer\" type=\"button\" class=\"group/button inline-flex items-center justify-center whitespace-nowrap transition duration-100 ease-out select-none pl-2 pr-3 h-8 rounded-[10px] gap-1.5 text-sm active:opacity-70 text-label-base border border-transparent bg-transparent hover:bg-bg-translucent hover:text-label-title cursor-pointer font-figtree font-semibold\" icon=\"[object Object]\" data-type=\"tertiary\" href=\"https://www.g2.com/products/meshy/reviews\""
+    },
+    {
+      "index": 66,
+      "tag": "a",
+      "text": "TrustPilot Rating: 4.8",
+      "attrs": "target=\"_blank\" rel=\"noopener noreferrer\" type=\"button\" class=\"group/button inline-flex items-center justify-center whitespace-nowrap transition duration-100 ease-out select-none pl-2 pr-3 h-8 rounded-[10px] gap-1.5 text-sm active:opacity-70 text-label-base border border-transparent bg-transparent hover:bg-bg-translucent hover:text-label-title cursor-pointer font-figtree font-semibold\" icon=\"[object Object]\" data-type=\"tertiary\" href=\"https://www.trustpilot.com/review/meshy.ai\""
+    },
+    {
+      "index": 75,
+      "tag": "button",
+      "text": "See It Lives",
+      "attrs": "disabled=\"\" type=\"button\" class=\"group/button inline-flex items-center justify-center whitespace-nowrap transition duration-100 ease-out select-none px-3 gap-2 cursor-default outline-hidden text-accent-label h-[32px] rounded-full bg-gradient-to-b from-[#C5F955] to-[#E3FFA7] text-sm font-bold sm:h-[36px] sm:text-base md:h-[52px] md:px-7 md:text-xl md:leading-[1.4]\" icon=\"[object Object]\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"radix-_R_29tbsse9fivb_\" data-state=\"closed\" data-slot=\"dialog-trigger\" data-type=\"button\""
+    },
+    {
+      "index": 76,
+      "tag": "a",
+      "text": "Image to 3D Model Turn your 2D images, sketch or illustrations effortlessly into stunning 3D models with our image to 3D model tool. Perfect for creators looking to bring their images to life.",
+      "attrs": "class=\"mt-4 block w-full rounded-[20px] bg-gradient-to-b from-[#3A1806] to-[#855E49] sm:rounded-[30px] md:mt-16 lg:rounded-[40px]\" href=\"/features/image-to-3d\""
+    },
+    {
+      "index": 78,
+      "tag": "a",
+      "text": "Text to 3D Model Create detailed 3D models from your ideas using our Text to 3D Model tool, which generates accurate 3D models from simple text descriptions.",
+      "attrs": "class=\"rounded-[20px] sm:rounded-[30px] lg:rounded-[40px] bg-gradient-to-b from-[#212908] to-[#788845]\" href=\"/features/text-to-3d\""
+    },
+    {
+      "index": 79,
+      "tag": "a",
+      "text": "AI Texturing Enhance your 3D models—generated or uploaded—using text prompts or reference images with our AI texture generator, crafting textures in any style you want.",
+      "attrs": "class=\"rounded-[20px] sm:rounded-[30px] lg:rounded-[40px] bg-gradient-to-b from-[#152E21] to-[#428C68]\" href=\"/features/ai-texture-generator\""
+    },
+    {
+      "index": 80,
+      "tag": "a",
+      "text": "Explore More",
+      "attrs": "type=\"button\" class=\"group/button inline-flex items-center justify-center whitespace-nowrap transition duration-100 ease-out select-none pl-4 pr-3 gap-2 active:opacity-70 text-accent-label border border-transparent bg-accent-base hover:bg-accent-base-hover cursor-pointer h-[32px] w-[140px] rounded-full text-sm font-bold sm:h-[36px] sm:w-[160px] sm:text-base md:h-[52px] md:w-[210px] md:text-xl md:leading-[1.4]\" data-type=\"primary\" href=\"/discover\""
+    },
+    {
+      "index": 83,
+      "tag": "a",
+      "text": "Incredible text to 3D and more! No limits to your imagination. If you have a creative mind, you can indulge yourself in creating everything that comes to mind, in a 3D version. The latest update has brought further improvements, furthermore in just 60 seconds 8 results of what we are going to create are generated. Of these, we can request an upscale or rather a refinement of the result. There are 3 3D generation possibilities which are as follows: from text, from image and the fantastic retexture function. I am one of the lucky winners of the retexture contest which gave away color stickers printed with a 3D printer! It is possible to export your creation in video format and in the glb format exportable to 3D editing software. Rating: 5 stars deserved!! Max Casu AI Creator",
+      "attrs": "class=\"block\" target=\"_blank\" rel=\"noreferrer\" href=\"https://www.producthunt.com/products/meshy/reviews?review=701252\""
+    },
+    {
+      "index": 84,
+      "tag": "a",
+      "text": "The level of texture and ease of the UI are incredible and unmatched. I use way too many 3D tools and this sits at the top of my workflow. Thanks Meshy! Tom Blake Digital Artist",
+      "attrs": "class=\"block\" target=\"_blank\" rel=\"noreferrer\" href=\"https://www.producthunt.com/products/meshy/reviews?review=800684\""
+    },
+    {
+      "index": 85,
+      "tag": "a",
+      "text": "My current go-to for AI 3D model generation tool. The latest Meshy 4 generations have been a huge leap in terms of quality for both text and image to 3D. Plus I&#x27;ve already got lots of value out of the easy biped/quadruped rigging and walking animation option. Also, it&#x27;s great to see the texturing improvements and the ability to retexture or fix textured sections (via the text-to-3d approach). Jon Draper AI Animator &amp; Developer",
+      "attrs": "class=\"block\" target=\"_blank\" rel=\"noreferrer\" href=\"https://www.producthunt.com/products/meshy/reviews?review=801638\""
+    },
+    {
+      "index": 86,
+      "tag": "a",
+      "text": "Who would have said that at some point we could use #AI to #texture our #3D models? @MeshyAI can really texture anything. From models you import to anything you create in other tools (without any UV mapping needed 🤯). Gabriele Romagnoli 3D Artist",
+      "attrs": "class=\"block\" target=\"_blank\" rel=\"noreferrer\" href=\"https://twitter.com/GabRoXR/status/1701128300775591966\""
+    },
+    {
+      "index": 87,
+      "tag": "a",
+      "text": "With @MeshyAI you can generate your textures in ai, but what makes this a winner is it&#x27;s amazing easy-to-use Interface, and the GLB maps you can use with #b3d #blender - #3D #artists, check this tool to texture your #models! (not sponsored). Pierre Schiller 3D Artist",
+      "attrs": "class=\"block\" target=\"_blank\" rel=\"noreferrer\" href=\"https://twitter.com/3D_director/status/1702032409535902144\""
+    },
+    {
+      "index": 88,
+      "tag": "a",
+      "text": "It&#x27;s really blowing my mind how far we&#x27;ve come with text-to-3D. It was only a few months ago we were getting very unimpressive results from tools like Shap-E. Now I can make full on objects that are borderline game ready. Matt Wolfe AI Creator",
+      "attrs": "class=\"block\" target=\"_blank\" rel=\"noreferrer\" href=\"https://x.com/mreflow/status/1752774309721125135\""
+    },
+    {
+      "index": 89,
+      "tag": "a",
+      "text": "2025 is the year 3D AI takes over! Meshy AI lets you turn a single image into high-quality 3D model. Then, you can choose any angle and bring it to life with an AI video generator. 3D AI is the future of content creation. el.cine AI Creator",
+      "attrs": "class=\"block\" target=\"_blank\" rel=\"noreferrer\" href=\"https://x.com/EHuanglu/status/1863255072035279336\""
+    },
+    {
+      "index": 90,
+      "tag": "a",
+      "text": "I absolutely love this deep-sea steel city that blends surrealism and steampunk styles. It’s incredibly exciting to see a world from my imagination gradually take shape in the game! @MeshyAI DarkTree Game Studio Game Developer",
+      "attrs": "class=\"block\" target=\"_blank\" rel=\"noreferrer\" href=\"https://x.com/davidzhang03211/status/1861106560782737570\""
+    },
+    {
+      "index": 91,
+      "tag": "a",
+      "text": "Meshy.ai is getting so much better. Last time I tried it, I was happy to get a blob in roughly the right shape. Now it seems capable of producing some really intricate forms while adhering to the prompt quite well. Kiaran Ritchie Principle Developer at Unreal Engine",
+      "attrs": "class=\"block\" target=\"_blank\" rel=\"noreferrer\" href=\"https://x.com/kiaran_ritchie/status/1857584831321776407\""
+    },
+    {
+      "index": 94,
+      "tag": "button",
+      "text": "Start Creating",
+      "attrs": "class=\"text-accent-label hover:shadow-accent-base/30 inline-flex cursor-pointer items-center justify-center rounded-full bg-gradient-to-b from-[#C5F955] to-[#E3FFA7] px-7 py-2 text-base leading-6 font-bold transition duration-300 ease-out select-none hover:-translate-y-1 hover:from-[#E3FFA7] hover:to-[#C5F955] hover:shadow-[0_0_30px_rgba(197,249,85,0.3)] md:py-3 md:text-lg\""
+    },
+    {
+      "index": 95,
+      "tag": "a",
+      "text": "Contact Sales",
+      "attrs": "aria-label=\"Contact sales\" type=\"button\" class=\"group/button inline-flex items-center justify-center whitespace-nowrap select-none gap-2 text-base active:opacity-70 text-label-base border border-transparent bg-transparent hover:bg-bg-translucent hover:text-label-title cursor-pointer h-12 rounded-full px-7 leading-6 font-semibold transition duration-300 ease-out hover:-translate-y-1 md:text-lg\" data-type=\"tertiary\" href=\"/contact\""
+    },
+    {
+      "index": 98,
+      "tag": "a",
+      "text": "Pricing",
+      "attrs": "aria-label=\"Pricing\" class=\"block\" href=\"/pricing\""
+    },
+    {
+      "index": 99,
+      "tag": "a",
+      "text": "Community",
+      "attrs": "aria-label=\"Community\" class=\"block\" href=\"/discover\""
+    }
+  ],
+  "loadingSignals": [
+    "loading",
+    "generating",
+    "processing",
+    "progress",
+    "retry"
+  ]
+}

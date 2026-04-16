@@ -1,0 +1,131 @@
+{
+  "textareas": [],
+  "selects": [],
+  "buttons": [
+    {
+      "index": 0,
+      "tag": "button",
+      "text": "Enter (No Music)",
+      "attrs": "class=\"nt-button-mute rotate1\" id=\"enter-button-mute\" disabled"
+    },
+    {
+      "index": 1,
+      "tag": "button",
+      "text": "Enter",
+      "attrs": "class=\"nt-button\" id=\"enter-button\" disabled"
+    },
+    {
+      "index": 5,
+      "tag": "button",
+      "text": "&times;",
+      "attrs": "class=\"modal-exit-button\" aria-label=\"Close\""
+    },
+    {
+      "index": 6,
+      "tag": "a",
+      "text": "More",
+      "attrs": "class=\"more-button\" data-project=\"interphysis\""
+    },
+    {
+      "index": 7,
+      "tag": "a",
+      "text": "More",
+      "attrs": "class=\"more-button\" data-project=\"anglerfish\""
+    },
+    {
+      "index": 8,
+      "tag": "a",
+      "text": "More",
+      "attrs": "class=\"more-button\" data-project=\"dna\""
+    },
+    {
+      "index": 9,
+      "tag": "a",
+      "text": "More",
+      "attrs": "class=\"more-button\" data-project=\"futurehuman\""
+    },
+    {
+      "index": 10,
+      "tag": "button",
+      "text": "&times;",
+      "attrs": "class=\"modal-exit-button\" aria-label=\"Close\""
+    },
+    {
+      "index": 11,
+      "tag": "button",
+      "text": "&times;",
+      "attrs": "class=\"modal-exit-button\" aria-label=\"Close\""
+    },
+    {
+      "index": 12,
+      "tag": "a",
+      "text": "Contact Me",
+      "attrs": "class=\"more-button\" href=\"mailto:xianyao.wei.de@gmail.com\""
+    },
+    {
+      "index": 16,
+      "tag": "button",
+      "text": "&times;",
+      "attrs": "class=\"modal-exit-button\" aria-label=\"Close\""
+    },
+    {
+      "index": 17,
+      "tag": "a",
+      "text": "Andrew Woan",
+      "attrs": "href=\"https://www.youtube.com/@andrewwoan\" target=\"_blank\"\n          rel=\"noopener noreferrer\""
+    },
+    {
+      "index": 18,
+      "tag": "a",
+      "text": "XtremeFreddy",
+      "attrs": "href=\"https://pixabay.com/users/xtremefreddy-32332307/\" target=\"_blank\" rel=\"noopener noreferrer\""
+    },
+    {
+      "index": 19,
+      "tag": "a",
+      "text": "xianyao.wei.de@gmail.com",
+      "attrs": "href=\"mailto:xianyao.wei.de@gmail.com\""
+    },
+    {
+      "index": 20,
+      "tag": "a",
+      "text": "https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement",
+      "attrs": "href=\"https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement\"\n          target=\"_blank\""
+    },
+    {
+      "index": 21,
+      "tag": "a",
+      "text": "https://policies.google.com/privacy",
+      "attrs": "href=\"https://policies.google.com/privacy\"\n          target=\"_blank\""
+    },
+    {
+      "index": 22,
+      "tag": "a",
+      "text": "https://cables.gl/docs/docs",
+      "attrs": "href=\"https://cables.gl/docs/docs\" target=\"_blank\""
+    },
+    {
+      "index": 23,
+      "tag": "a",
+      "text": "https://policies.google.com/privacy",
+      "attrs": "href=\"https://policies.google.com/privacy\"\n          target=\"_blank\""
+    },
+    {
+      "index": 24,
+      "tag": "button",
+      "text": "&times;",
+      "attrs": "class=\"project-close\" aria-label=\"Close\""
+    },
+    {
+      "index": 25,
+      "tag": "a",
+      "text": "open the cables.gl patch",
+      "attrs": "href=\"https://cables.gl/p/qcuxUs\" target=\"_blank\" rel=\"noopener noreferrer\""
+    }
+  ],
+  "loadingSignals": [
+    "loading",
+    "processing",
+    "progress"
+  ]
+}

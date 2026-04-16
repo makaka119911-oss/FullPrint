@@ -1,0 +1,43 @@
+{
+  "textareas": [],
+  "selects": [],
+  "buttons": [
+    {
+      "index": 0,
+      "tag": "a",
+      "text": "[ Login ]",
+      "attrs": "class=\"framer-text framer-styles-preset-wycqsf\" data-styles-preset=\"fCDPKGHby\" href=\"https://id.o.xyz\" target=\"_blank\" rel=\"noopener\""
+    },
+    {
+      "index": 1,
+      "tag": "a",
+      "text": "JOIN THE INNER CIRCLE JOIN THE INNER CIRCLE",
+      "attrs": "class=\"framer-BI8bk framer-gpeajq framer-v-gpeajq framer-idl6tv\" data-framer-name=\"Variant 1\" style=\"border-bottom-left-radius:1000px;border-bottom-right-radius:1000px;border-top-left-radius:1000px;border-top-right-radius:1000px;box-shadow:8px -8px 50px 0px rgba(242, 138, 97, 0.17)\" href=\"https://ofoundation.com\" rel=\"noopener\""
+    },
+    {
+      "index": 2,
+      "tag": "a",
+      "text": "JOIN THE INNER CIRCLE JOIN THE INNER CIRCLE",
+      "attrs": "class=\"framer-BI8bk framer-gpeajq framer-v-gpeajq framer-idl6tv\" data-framer-name=\"Variant 1\" style=\"border-bottom-left-radius:1000px;border-bottom-right-radius:1000px;border-top-left-radius:1000px;border-top-right-radius:1000px;box-shadow:8px -8px 50px 0px rgba(242, 138, 97, 0.17)\" href=\"https://ofoundation.com\" rel=\"noopener\""
+    },
+    {
+      "index": 3,
+      "tag": "a",
+      "text": "JOIN THE INNER CIRCLE JOIN THE INNER CIRCLE",
+      "attrs": "class=\"framer-BI8bk framer-gpeajq framer-v-gpeajq framer-idl6tv\" data-framer-name=\"Variant 1\" style=\"border-bottom-left-radius:1000px;border-bottom-right-radius:1000px;border-top-left-radius:1000px;border-top-right-radius:1000px;box-shadow:8px -8px 50px 0px rgba(242, 138, 97, 0.17);width:100%\" href=\"https://ofoundation.com\" rel=\"noopener\""
+    },
+    {
+      "index": 4,
+      "tag": "a",
+      "text": "JOIN THE INNER CIRCLE JOIN THE INNER CIRCLE",
+      "attrs": "class=\"framer-BI8bk framer-gpeajq framer-v-gpeajq framer-idl6tv\" data-framer-name=\"Variant 1\" style=\"border-bottom-left-radius:1000px;border-bottom-right-radius:1000px;border-top-left-radius:1000px;border-top-right-radius:1000px;box-shadow:8px -8px 50px 0px rgba(242, 138, 97, 0.17)\" href=\"https://ofoundation.com\" rel=\"noopener\""
+    },
+    {
+      "index": 5,
+      "tag": "a",
+      "text": "JOIN THE INNER CIRCLE JOIN THE INNER CIRCLE",
+      "attrs": "class=\"framer-BI8bk framer-gpeajq framer-v-gpeajq framer-idl6tv\" data-framer-name=\"Variant 1\" style=\"border-bottom-left-radius:1000px;border-bottom-right-radius:1000px;border-top-left-radius:1000px;border-top-right-radius:1000px;box-shadow:8px -8px 50px 0px rgba(242, 138, 97, 0.17)\" href=\"https://ofoundation.com\" rel=\"noopener\""
+    }
+  ],
+  "loadingSignals": []
+}
