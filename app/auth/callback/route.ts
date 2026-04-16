@@ -1,6 +1,10 @@
 import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 
+/** App Router: этот файл задаёт маршрут GET /auth/callback */
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 function sanitizeNext(next: string | null, fallback = "/dashboard"): string {
   const path = (next?.trim() || fallback).split("?")[0] ?? fallback;
   if (!path.startsWith("/") || path.startsWith("//") || path.includes("://")) {
