@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 
-import { createClient } from "@/lib/supabase/client";
+import { createClient, SUPABASE_CLIENT_CONFIG_ERROR } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -24,6 +24,10 @@ export function MyPurchases() {
     async function load() {
       try {
         const supabase = createClient();
+        if (!supabase) {
+          setError(SUPABASE_CLIENT_CONFIG_ERROR);
+          return;
+        }
         const {
           data: { user },
           error: userError,

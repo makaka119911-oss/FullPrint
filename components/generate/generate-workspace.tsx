@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import { MeshyGenerationPanel } from "@/components/generate/meshy-generation-panel";
 import { PreviewPanel } from "@/components/generate/preview-panel";
-import { createClient } from "@/lib/supabase/client";
+import { createClient, SUPABASE_CLIENT_CONFIG_ERROR } from "@/lib/supabase/client";
 
 type GenerateResponse = {
   generationId: string;
@@ -34,6 +34,10 @@ export function GenerateWorkspace() {
     async function restore() {
       try {
         const supabase = createClient();
+        if (!supabase) {
+          setError(SUPABASE_CLIENT_CONFIG_ERROR);
+          return;
+        }
         const { data, error: queryError } = await supabase
           .from("generations")
           .select("image_url, prompt")

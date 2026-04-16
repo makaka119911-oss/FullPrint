@@ -10,7 +10,7 @@ import {
   type PrintOptions,
 } from "@/components/print/print-options-panel";
 import { PrintSummaryCard } from "@/components/print/print-summary-card";
-import { createClient } from "@/lib/supabase/client";
+import { createClient, SUPABASE_CLIENT_CONFIG_ERROR } from "@/lib/supabase/client";
 
 type QuoteResponse = {
   jobId: string;
@@ -169,6 +169,11 @@ export function PrintWorkspace() {
       setRemoteHint("Ищем STL в вашей генерации…");
 
       const supabase = createClient();
+      if (!supabase) {
+        setRemoteHint(null);
+        setError(SUPABASE_CLIENT_CONFIG_ERROR);
+        return;
+      }
       const { data, error: genError } = await supabase
         .from("generations")
         .select("model_url")

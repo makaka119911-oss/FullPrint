@@ -75,6 +75,12 @@ function estimateUsd(params: {
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
+    if (!supabase) {
+      return NextResponse.json(
+        { error: "Server misconfigured: Supabase env missing" },
+        { status: 503 },
+      );
+    }
     const {
       data: { user },
       error: userError,

@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useSearchParams } from "next/navigation";
 
-import { createClient } from "@/lib/supabase/client";
+import { createClient, SUPABASE_CLIENT_CONFIG_ERROR } from "@/lib/supabase/client";
 import { ConversionPanel } from "@/components/studio/conversion-panel";
 import { ModelViewer } from "@/components/studio/model-viewer";
 
@@ -52,6 +52,10 @@ export function StudioWorkspace() {
 
       try {
         const supabase = createClient();
+        if (!supabase) {
+          setError(SUPABASE_CLIENT_CONFIG_ERROR);
+          return;
+        }
         const { data, error: queryError } = await supabase
           .from("generations")
           .select("id, image_url, model_url, prompt")

@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 
-import { createClient } from "@/lib/supabase/client";
+import { createClient, SUPABASE_CLIENT_CONFIG_ERROR } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Footer } from "@/components/layout/footer";
@@ -33,6 +33,10 @@ export default function SignupPage() {
       setPendingUsernameCookie(username);
 
       const supabase = createClient();
+      if (!supabase) {
+        setError(SUPABASE_CLIENT_CONFIG_ERROR);
+        return;
+      }
       const emailRedirectTo = `${window.location.origin}/auth/callback?next=/dashboard`;
       const { error: signUpError } = await supabase.auth.signInWithOtp({
         email,

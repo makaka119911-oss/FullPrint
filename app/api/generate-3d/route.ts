@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 import { convertImageTo3D } from "@/lib/ai/generate-3d";
 import { createClient } from "@/lib/supabase/server";
@@ -11,7 +12,7 @@ type Payload = {
 };
 
 async function uploadFromRemote(
-  supabase: Awaited<ReturnType<typeof createClient>>,
+  supabase: SupabaseClient,
   bucket: string,
   userId: string,
   remoteUrl: string,
@@ -57,6 +58,12 @@ export async function POST(request: NextRequest) {
     }
 
     const supabase = await createClient();
+    if (!supabase) {
+      return NextResponse.json(
+        { error: "Server misconfigured: Supabase env missing" },
+        { status: 503 },
+      );
+    }
     const {
       data: { user },
       error: userError,
