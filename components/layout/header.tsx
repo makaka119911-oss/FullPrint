@@ -2,10 +2,10 @@
 
 import * as React from "react";
 import Link from "next/link";
-import type { User } from "@supabase/supabase-js";
+import type { Session, User } from "@supabase/supabase-js";
 import { Loader2, UserRound } from "lucide-react";
 
-import { createClient } from "@/lib/supabase/client";
+import { createBrowserSupabaseClient } from "@/lib/supabase/client";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 
@@ -20,19 +20,26 @@ export function Header() {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    const supabase = createClient();
+    const supabase = createBrowserSupabaseClient();
     let cancelled = false;
 
-    void supabase.auth.getUser().then(({ data }) => {
+    if (!supabase) {
+      setUser(null);
+      setLoading(false);
+      return;
+    }
+
+    void (async () => {
+      const { data } = await supabase.auth.getUser();
       if (!cancelled) {
         setUser(data.user ?? null);
         setLoading(false);
       }
-    });
+    })();
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange((_event, session: Session | null) => {
       setUser(session?.user ?? null);
       setLoading(false);
     });

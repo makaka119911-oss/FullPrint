@@ -1,9 +1,25 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 
-import { WeisdeviceHeroBackground } from "@/components/home/weisdevice-hero-background";
 import { Button } from "@/components/ui/button";
+
+const WeisdeviceHeroBackground = dynamic(
+  () =>
+    import("@/components/home/weisdevice-hero-background").then(
+      (m) => m.WeisdeviceHeroBackground,
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="pointer-events-none absolute inset-0 bg-zinc-950"
+        aria-hidden
+      />
+    ),
+  },
+);
 
 export function MaxelHero() {
   return (
