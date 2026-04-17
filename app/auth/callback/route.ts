@@ -1,17 +1,11 @@
 import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 
+import { sanitizeAuthNext } from "@/lib/auth/sanitize-next";
+
 /** App Router: этот файл задаёт маршрут GET /auth/callback */
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
-
-function sanitizeNext(next: string | null, fallback = "/dashboard"): string {
-  const path = (next?.trim() || fallback).split("?")[0] ?? fallback;
-  if (!path.startsWith("/") || path.startsWith("//") || path.includes("://")) {
-    return fallback;
-  }
-  return path;
-}
 
 function readPendingUsername(raw: string | undefined): string | null {
   if (!raw) return null;
@@ -28,7 +22,7 @@ export async function GET(request: NextRequest) {
   const code = requestUrl.searchParams.get("code");
   const oauthError = requestUrl.searchParams.get("error");
   const oauthDescription = requestUrl.searchParams.get("error_description");
-  const nextPath = sanitizeNext(requestUrl.searchParams.get("next"));
+  const nextPath = sanitizeAuthNext(requestUrl.searchParams.get("next"));
 
   console.log("[auth/callback] request", {
     origin,

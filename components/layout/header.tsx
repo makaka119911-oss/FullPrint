@@ -2,8 +2,9 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { Session, User } from "@supabase/supabase-js";
-import { Loader2, UserRound } from "lucide-react";
+import { Loader2, LogOut, UserRound } from "lucide-react";
 
 import { createBrowserSupabaseClient } from "@/lib/supabase/client";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -16,8 +17,24 @@ const nav = [
 ] as const;
 
 export function Header() {
+  const router = useRouter();
   const [user, setUser] = React.useState<User | null>(null);
   const [loading, setLoading] = React.useState(true);
+  const [signingOut, setSigningOut] = React.useState(false);
+
+  async function handleSignOut() {
+    const supabase = createBrowserSupabaseClient();
+    if (!supabase) return;
+    setSigningOut(true);
+    try {
+      await supabase.auth.signOut();
+      setUser(null);
+      router.push("/");
+      router.refresh();
+    } finally {
+      setSigningOut(false);
+    }
+  }
 
   React.useEffect(() => {
     const supabase = createBrowserSupabaseClient();
@@ -105,6 +122,20 @@ export function Header() {
                 >
                   <UserRound className="h-4 w-4" strokeWidth={1.75} />
                 </Link>
+                <Button
+                  type="button"
+                  size="sm"
+                  variant="outline"
+                  className="rounded-full border-zinc-600 px-3 text-zinc-100 dark:hover:border-[#8B5CF6]/40"
+                  disabled={signingOut}
+                  onClick={() => void handleSignOut()}
+                  aria-label="Выйти"
+                >
+                  <LogOut className="h-4 w-4 sm:mr-1" strokeWidth={1.75} />
+                  <span className="hidden sm:inline">
+                    {signingOut ? "Выход…" : "Выйти"}
+                  </span>
+                </Button>
               </>
             ) : (
               <>

@@ -5,6 +5,8 @@ const PUBLIC_PATHS = [
   "/",
   "/login",
   "/signup",
+  "/forgot-password",
+  "/auth/update-password",
   "/marketplace",
   "/auth/callback",
 ] as const;
