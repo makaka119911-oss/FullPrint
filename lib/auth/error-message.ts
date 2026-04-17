@@ -9,7 +9,11 @@ export function mapSupabaseAuthError(message: string): string {
   if (m.includes("email not confirmed")) {
     return "Подтвердите email по ссылке из письма, затем войдите.";
   }
-  if (m.includes("user already registered") || m.includes("already been registered")) {
+  if (
+    m.includes("user already registered") ||
+    m.includes("already been registered") ||
+    m.includes("user_already_exists")
+  ) {
     return "Этот email уже зарегистрирован. Войдите или сбросьте пароль.";
   }
   if (m.includes("password should be at least") || m.includes("password is too short")) {

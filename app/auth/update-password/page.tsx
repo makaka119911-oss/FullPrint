@@ -21,6 +21,7 @@ export default function UpdatePasswordPage() {
   const [password, setPassword] = React.useState("");
   const [password2, setPassword2] = React.useState("");
   const [pending, setPending] = React.useState(false);
+  const [saved, setSaved] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
@@ -75,8 +76,11 @@ export default function UpdatePasswordPage() {
       const { error: updateError } = await supabase.auth.updateUser({ password });
       if (updateError) throw updateError;
 
-      router.replace("/dashboard");
-      router.refresh();
+      setSaved(true);
+      window.setTimeout(() => {
+        router.replace("/dashboard");
+        router.refresh();
+      }, 1400);
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Не удалось обновить пароль";
       setError(mapSupabaseAuthError(msg));
@@ -101,6 +105,19 @@ export default function UpdatePasswordPage() {
               <p className="text-sm text-zinc-400">Проверяем сессию…</p>
             ) : sessionState === "missing" ? (
               <p className="text-sm text-red-400">{error}</p>
+            ) : saved ? (
+              <div className="space-y-4" role="status">
+                <p className="text-sm font-medium text-emerald-300">Готово — пароль обновлён.</p>
+                <p className="text-sm text-zinc-400">
+                  Сейчас откроется дашборд. Если нет — нажмите кнопку ниже.
+                </p>
+                <Button
+                  asChild
+                  className="w-full rounded-full border-0 bg-[#8B5CF6] text-white hover:bg-[#7c3aed]"
+                >
+                  <Link href="/dashboard">Перейти в кабинет</Link>
+                </Button>
+              </div>
             ) : (
               <form onSubmit={onSubmit} className="space-y-4">
                 <div className="space-y-2">

@@ -4,6 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+import { AuthEmailFollowup } from "@/components/auth/auth-email-followup";
 import { createClient, SUPABASE_CLIENT_CONFIG_ERROR } from "@/lib/supabase/client";
 import { sanitizeAuthNext } from "@/lib/auth/sanitize-next";
 import { mapSupabaseAuthError } from "@/lib/auth/error-message";
@@ -61,6 +62,14 @@ export default function SignupPage() {
     window.history.replaceState({}, "", "/signup");
   }, []);
 
+  function backToSignupForm() {
+    setSent(null);
+    setEmail("");
+    setPassword("");
+    setPassword2("");
+    setError(null);
+  }
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setPending(true);
@@ -102,6 +111,18 @@ export default function SignupPage() {
 
       if (signUpError) throw signUpError;
 
+      // При включённом «Confirm email» Supabase не отдаёт ошибку на дубликат, а возвращает
+      // пользователя с пустым identities — так защищают от перебора email.
+      const ids = data.user?.identities;
+      if (data.user && Array.isArray(ids) && ids.length === 0) {
+        setError(
+          mapSupabaseAuthError(
+            "User already registered",
+          ),
+        );
+        return;
+      }
+
       if (data.session?.user) {
         await supabase.from("profiles").upsert(
           {
@@ -126,107 +147,120 @@ export default function SignupPage() {
     }
   }
 
-  const inputClass =
-    "border-zinc-700 bg-zinc-900/50 text-zinc-50 placeholder:text-zinc-500";
+  const loginWithNext = `/login?next=${encodeURIComponent(nextPath)}`;
 
   return (
-    <div className="flex min-h-screen flex-col bg-zinc-950 text-zinc-50">
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
       <div className="mx-auto flex w-full max-w-6xl flex-1 items-center px-4 py-16 sm:px-6">
-        <Card className="mx-auto w-full max-w-md border-zinc-800 bg-zinc-950/80 text-zinc-50 shadow-xl shadow-black/20">
-          <CardHeader>
-            <CardTitle className="text-xl">Регистрация</CardTitle>
-            <p className="text-sm text-zinc-400">
-              Email и пароль. Если в проекте включено подтверждение почты в Supabase — после
-              регистрации проверьте входящие и перейдите по ссылке.
-            </p>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={onSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="you@company.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  autoComplete="email"
-                  required
-                  className={inputClass}
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="username">Имя пользователя</Label>
-                <Input
-                  id="username"
-                  type="text"
-                  placeholder="maxel"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  autoComplete="username"
-                  required
-                  className={inputClass}
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="password">Пароль</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="минимум 6 символов"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  autoComplete="new-password"
-                  required
-                  className={inputClass}
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="password2">Пароль ещё раз</Label>
-                <Input
-                  id="password2"
-                  type="password"
-                  placeholder="повторите пароль"
-                  value={password2}
-                  onChange={(e) => setPassword2(e.target.value)}
-                  autoComplete="new-password"
-                  required
-                  className={inputClass}
-                />
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full rounded-full border-0 bg-[#8B5CF6] text-white hover:bg-[#7c3aed]"
-                disabled={pending}
+        <Card className="mx-auto w-full max-w-md shadow-lg shadow-zinc-900/5 dark:shadow-black/30">
+          {sent ? (
+            <CardContent className="p-6 sm:p-8">
+              <AuthEmailFollowup
+                email={sent}
+                headline="Почти на месте"
+                hrefPrimary={loginWithNext}
+                primaryLabel="Перейти ко входу"
+                onSecondaryAction={backToSignupForm}
+                secondaryLabel="Зарегистрироваться с другим email"
               >
-                {pending ? "Создаём аккаунт…" : "Зарегистрироваться"}
-              </Button>
-
-              {sent ? (
-                <p className="text-sm text-zinc-300">
-                  Аккаунт создан. Письмо с подтверждением отправлено на{" "}
-                  <span className="font-medium">{sent}</span>. Откройте ссылку, затем войдите.
+                <p>
+                  Мы отправили письмо с короткой ссылкой подтверждения. Откройте почту и
+                  нажмите её — так мы активируем аккаунт и подключаем FullPrint к вашему
+                  рабочему процессу.
                 </p>
-              ) : null}
+                <p>
+                  После подтверждения войдите с тем же email и паролем — дальше можно спокойно
+                  продолжать с того места, где остановились.
+                </p>
+              </AuthEmailFollowup>
+            </CardContent>
+          ) : (
+            <>
+              <CardHeader>
+                <CardTitle className="text-xl">Регистрация</CardTitle>
+                <p className="text-sm text-zinc-600 dark:text-zinc-300">
+                  Email и пароль. Если в Supabase включено подтверждение почты, после регистрации
+                  загляните во входящие и пройдите по ссылке из письма.
+                </p>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={onSubmit} className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="you@company.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      autoComplete="email"
+                      required
+                    />
+                  </div>
 
-              {error ? <p className="text-sm text-red-400">{error}</p> : null}
+                  <div className="space-y-2">
+                    <Label htmlFor="username">Имя пользователя</Label>
+                    <Input
+                      id="username"
+                      type="text"
+                      placeholder="maxel"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      autoComplete="username"
+                      required
+                    />
+                  </div>
 
-              <p className="text-sm text-zinc-400">
-                Уже есть аккаунт?{" "}
-                <Link
-                  className="text-zinc-200 underline-offset-4 hover:underline"
-                  href="/login"
-                >
-                  Войти
-                </Link>
-              </p>
-            </form>
-          </CardContent>
+                  <div className="space-y-2">
+                    <Label htmlFor="password">Пароль</Label>
+                    <Input
+                      id="password"
+                      type="password"
+                      placeholder="минимум 6 символов"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      autoComplete="new-password"
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="password2">Пароль ещё раз</Label>
+                    <Input
+                      id="password2"
+                      type="password"
+                      placeholder="повторите пароль"
+                      value={password2}
+                      onChange={(e) => setPassword2(e.target.value)}
+                      autoComplete="new-password"
+                      required
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    className="w-full rounded-full border-0 bg-[#8B5CF6] text-white hover:bg-[#7c3aed]"
+                    disabled={pending}
+                  >
+                    {pending ? "Создаём аккаунт…" : "Зарегистрироваться"}
+                  </Button>
+
+                  {error ? <p className="text-sm text-red-600 dark:text-red-400">{error}</p> : null}
+
+                  <p className="text-sm text-zinc-600 dark:text-zinc-300">
+                    Уже есть аккаунт?{" "}
+                    <Link
+                      className="font-medium text-zinc-900 underline-offset-4 hover:underline dark:text-zinc-100"
+                      href={loginWithNext}
+                    >
+                      Войти
+                    </Link>
+                  </p>
+                </form>
+              </CardContent>
+            </>
+          )}
         </Card>
       </div>
       <Footer />

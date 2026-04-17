@@ -1,11 +1,14 @@
 import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 
+import { isRecoverySession } from "@/lib/auth/is-recovery-session";
 import { sanitizeAuthNext } from "@/lib/auth/sanitize-next";
 
 /** App Router: этот файл задаёт маршрут GET /auth/callback */
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
+
+type PendingCookie = { name: string; value: string; options?: Record<string, unknown> };
 
 function readPendingUsername(raw: string | undefined): string | null {
   if (!raw) return null;
@@ -16,6 +19,12 @@ function readPendingUsername(raw: string | undefined): string | null {
   }
 }
 
+function flushCookies(response: NextResponse, rows: PendingCookie[]) {
+  rows.forEach(({ name, value, options }) => {
+    response.cookies.set(name, value, options as Parameters<NextResponse["cookies"]["set"]>[2]);
+  });
+}
+
 export async function GET(request: NextRequest) {
   const requestUrl = new URL(request.url);
   const origin = requestUrl.origin;
@@ -23,6 +32,7 @@ export async function GET(request: NextRequest) {
   const oauthError = requestUrl.searchParams.get("error");
   const oauthDescription = requestUrl.searchParams.get("error_description");
   const nextPath = sanitizeAuthNext(requestUrl.searchParams.get("next"));
+  const typeRecoveryHint = requestUrl.searchParams.get("type") === "recovery";
 
   console.log("[auth/callback] request", {
     origin,
@@ -31,6 +41,7 @@ export async function GET(request: NextRequest) {
     codeLength: code?.length ?? 0,
     next: nextPath,
     oauthError,
+    typeRecoveryHint,
   });
 
   if (oauthError) {
@@ -53,23 +64,22 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(login);
   }
 
-  const redirectTarget = new URL(nextPath, origin);
-  const response = NextResponse.redirect(redirectTarget);
+  const pendingCookies: PendingCookie[] = [];
+
+  const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
+    cookies: {
+      getAll() {
+        return request.cookies.getAll();
+      },
+      setAll(cookiesToSet) {
+        cookiesToSet.forEach(({ name, value, options }) => {
+          pendingCookies.push({ name, value, options });
+        });
+      },
+    },
+  });
 
   try {
-    const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
-      cookies: {
-        getAll() {
-          return request.cookies.getAll();
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => {
-            response.cookies.set(name, value, options);
-          });
-        },
-      },
-    });
-
     if (code) {
       const { data: exchangeData, error: exchangeError } =
         await supabase.auth.exchangeCodeForSession(code);
@@ -89,7 +99,13 @@ export async function GET(request: NextRequest) {
       console.log("[auth/callback] exchangeCodeForSession OK", {
         hasSession: Boolean(exchangeData?.session),
         userId: exchangeData?.session?.user?.id ?? null,
+        recovery: isRecoverySession(exchangeData?.session),
       });
+
+      let finalPath = nextPath;
+      if (typeRecoveryHint || isRecoverySession(exchangeData?.session)) {
+        finalPath = "/auth/update-password";
+      }
 
       const {
         data: { user },
@@ -118,6 +134,9 @@ export async function GET(request: NextRequest) {
         }
       }
 
+      const response = NextResponse.redirect(new URL(finalPath, origin));
+      flushCookies(response, pendingCookies);
+
       if (request.cookies.get("fp_username")) {
         response.cookies.set("fp_username", "", {
           path: "/",
@@ -134,6 +153,9 @@ export async function GET(request: NextRequest) {
     } = await supabase.auth.getUser();
 
     if (existingUser) {
+      const redirectTarget = new URL(nextPath, origin);
+      const response = NextResponse.redirect(redirectTarget);
+      flushCookies(response, pendingCookies);
       console.log("[auth/callback] no code, existing session — redirect", nextPath);
       return response;
     }
